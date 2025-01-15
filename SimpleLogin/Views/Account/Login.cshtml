@@ -3,22 +3,92 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
 
-<form asp-action="Login" method="post">
-    <table>
-        <tr>
-            <td><label>Email:</label></td>
-            <td><input name="email" /></td>
-        </tr>
-        <tr>
-            <td><label>Password:</label></td>
-            <td><input name="password" type="password" /></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: right;">
-                <button type="submit">Login</button>
-            </td>
-        </tr>
-    </table>
-</form>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoon Style Login</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f7f4d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-form {
+            background: #ffefd5;
+            border: 5px solid #f4a460;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 300px;
+        }
+
+            .login-form table {
+                width: 100%;
+            }
+
+            .login-form label {
+                font-size: 1.2em;
+                color: #d2691e;
+            }
+
+            .login-form input {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                border: 2px solid #f4a460;
+                border-radius: 8px;
+                box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+                font-size: 1em;
+            }
+
+            .login-form button {
+                background: #f4a460;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                color: white;
+                font-size: 1.2em;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+                .login-form button:hover {
+                    transform: scale(1.1);
+                    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+                }
+
+                .login-form button:active {
+                    transform: scale(0.9);
+                }
+    </style>
+</head>
+<body>
+    <form class="login-form" asp-action="Login" method="post">
+        <table>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input id="email" name="email" type="text" /></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input id="password" name="password" type="password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <button type="submit">Login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
