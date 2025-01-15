@@ -1,0 +1,42 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+    <form method="post" asp-action="Register" >
+
+
+    <table class="table table-bordered">
+    <tr>
+            <td> <label>Name:</label></td>
+            <td><input asp-for="Name" /></td>
+            </tr>
+    <tr>
+            <td><label>Email:</label> </td>
+            <td> <input asp-for="Email" /> </td>
+    </tr>
+    <tr>
+            <td><label>Password:</label> </td>
+            <td> <input asp-for="Password" type="password" /></td>
+
+ <tr>
+           <td> <label asp-for="RoleId"></label></td>
+            <td> <select asp-for="RoleId" asp-for="RoleId" asp-items="ViewBag.Roles" class="form-control" ></select> </td>
+
+        </tr>
+
+
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Save" class="btn btn-success" />
+            <a asp-action="User" class="btn btn-secondary">Cancel</a>
+
+        </td>
+    </tr>
+  
+</table>
+
+</form>
