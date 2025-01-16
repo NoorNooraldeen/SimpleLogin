@@ -3,124 +3,41 @@
     ViewData["Title"] = "Register";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartoon Style Register</title>
-    <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #f0f8ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+<h1>Register</h1>
 
-        .register-form {
-            background: #ffefd5;
-            border: 5px solid #4682b4;
-            border-radius: 15px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            width: 400px;
-        }
+<form method="post" asp-action="Register">
 
-            .register-form h1 {
-                text-align: center;
-                color: #4682b4;
-                text-shadow: 2px 2px #d3d3d3;
-            }
 
-            .register-form table {
-                width: 100%;
-            }
+    <table class="table table-bordered">
+        <tr>
+            <td> <label>Name:</label></td>
+            <td><input asp-for="Name" /></td>
+        </tr>
+        <tr>
+            <td><label>Email:</label> </td>
+            <td> <input asp-for="Email" /> </td>
+        </tr>
+        <tr>
+            <td><label>Password:</label> </td>
+            <td> <input asp-for="Password" type="password" /></td>
 
-            .register-form label {
-                font-size: 1.1em;
-                color: #5f9ea0;
-            }
+        <tr>
+            <td> <label asp-for="RoleId"></label></td>
+            <td> <select asp-for="RoleId" asp-for="RoleId" asp-items="ViewBag.Roles" class="form-control"></select> </td>
 
-            .register-form input, .register-form select {
-                width: 100%;
-                padding: 8px;
-                margin: 5px 0;
-                border: 2px solid #4682b4;
-                border-radius: 8px;
-                box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-                font-size: 1em;
-            }
+        </tr>
 
-                .register-form input[type="submit"], .register-form a {
-                    text-align: center;
-                    background: #5f9ea0;
-                    border: none;
-                    border-radius: 10px;
-                    padding: 10px 20px;
-                    color: white;
-                    font-size: 1.2em;
-                    cursor: pointer;
-                    transition: transform 0.2s, box-shadow 0.2s;
-                    text-decoration: none;
-                    display: inline-block;
-                }
 
-                    .register-form input[type="submit"]:hover, .register-form a:hover {
-                        transform: scale(1.1);
-                        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-                    }
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="User" class="btn btn-secondary">Cancel</a>
 
-                    .register-form input[type="submit"]:active, .register-form a:active {
-                        transform: scale(0.9);
-                    }
+            </td>
+        </tr>
 
-            .register-form .btn-secondary {
-                background: #b0c4de;
-            }
+    </table>
 
-            .register-form td {
-                padding: 10px;
-            }
+</form>
 
-            .register-form tr:last-child td {
-                text-align: center;
-            }
-    </style>
-</head>
-<body>
-    <form class="register-form" method="post" asp-action="Register">
-        <h1>Register</h1>
-        <table>
-            <tr>
-                <td><label for="name">Name:</label></td>
-                <td><input id="name" asp-for="Name" type="text" /></td>
-            </tr>
-            <tr>
-                <td><label for="email">Email:</label></td>
-                <td><input id="email" asp-for="Email" type="email" /></td>
-            </tr>
-            <tr>
-                <td><label for="password">Password:</label></td>
-                <td><input id="password" asp-for="Password" type="password" /></td>
-            </tr>
-            <tr>
-                <td><label for="role">Role:</label></td>
-                <td>
-                    <select id="role" asp-for="RoleId" asp-items="ViewBag.Roles">
-                        <!-- Options will be populated dynamically -->
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Save" class="btn btn-success" />
-                    <a asp-action="User" class="btn btn-secondary">Cancel</a>
-                </td>
-            </tr>
-        </table>
-    </form>
-</body>
-</html>

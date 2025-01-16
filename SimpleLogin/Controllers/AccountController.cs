@@ -34,6 +34,7 @@ namespace SimpleLogin.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Login");
             }
+            ViewBag.Roles = new SelectList(_context.Roles, "RoleId", "RoleName");
             return View(user);
 
         }
